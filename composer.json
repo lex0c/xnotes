@@ -1,6 +1,6 @@
 {
     "name": "XNotes",
-    "description": "Simple application notes.",
+    "description": "Simple notes application.",
     "keywords": ["project", "laravel", "notes"],
     "license": "MIT",
     "type": "project",

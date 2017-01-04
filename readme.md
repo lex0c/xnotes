@@ -1,3 +1,3 @@
-## Xnotes - Simple Application Notes
+## XNotes - Simple Notes Application
 
 > ...
