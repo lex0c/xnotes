@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Webapp;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class HomeController extends Controller
+class NoteController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,6 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('webapp.home');
     }
 }
