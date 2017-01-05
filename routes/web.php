@@ -17,4 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::group(['namespace' => 'Webapp'], function() {
+    Route::get('/notes', 'NoteController@index');
+    
+});
+
