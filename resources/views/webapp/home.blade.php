@@ -45,9 +45,9 @@
                     </div>
                     <div class="panel-footer clearfix">
                         
-                        @foreach($categories as $category)
-                            <a href="#" class="nolink"><span class="label label-info">{{ $category->name }}</span></a>
-                        @endforeach
+                        {{--@for($i = 0; $i < count($categories); $i++)--}}
+                            <a href="#" class="nolink"><span class="label label-info">{{ $categories[0][0]['name'] or 'No category' }}</span></a>
+                        {{--@endfor--}}
                         <p class="right litle-text">Editado {{ $updatedAt }}</p>
                     </div>
                 </div>
@@ -64,10 +64,10 @@
                                 <span class="badge">{{ $notes_total }}</span>
                                 Todos
                             </a>
-                            @foreach($categories as $category)
+                            @foreach($categories as $category => $total)
                                 <a href="#" class="list-group-item">
-                                    <span class="badge">{{ $notes_categories_total or '2' }}</span>
-                                    {{ $category->name }}
+                                    <span class="badge">{{ $total }}</span>
+                                    {{ $category }}
                                 </a>
                             @endforeach
                         </div>

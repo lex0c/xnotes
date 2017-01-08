@@ -85,7 +85,7 @@
                             @if(Auth::guest())
                                 &nbsp;
                             @else
-                                <button type="button" class="btn btn-primary navbar-btn">Nova Nota</button>
+                                <a class="btn btn-primary navbar-btn" href="{{ route('notes.create') }}" role="button">Nova Nota</a>
                                 <button type="button" class="btn btn-success navbar-btn">Nova Lista</button>
                                 <button type="button" class="btn btn-default navbar-btn">Nova Categoria</button>
                             @endif
