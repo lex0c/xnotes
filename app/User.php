@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Model\Webapp\Category;
+use App\Model\Webapp\Note;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -26,4 +28,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function notes()
+    {
+        return $this->hasMany(Note::class);
+    }
+
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
+
 }
