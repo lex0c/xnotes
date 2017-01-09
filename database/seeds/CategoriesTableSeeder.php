@@ -15,30 +15,30 @@ class CategoriesTableSeeder extends Seeder
         Category::create([
             'user_id' => '1',
             'name' => 'Social',
-            'desc' => 'Categoria relacionada com redes sociais, amigos, etc...'
+            'description' => 'Categoria relacionada com redes sociais, amigos, etc...'
         ]);
 
         Category::create([
             'user_id' => '1',
             'name' => 'Faculdade',
-            'desc' => 'Categoria relacionada com a faculdade.'
+            'description' => 'Categoria relacionada com a faculdade.'
         ]);
 
         Category::create([
             'user_id' => '2',
             'name' => 'Útil',
-            'desc' => 'Categoria relacionada a coisas úteis do dia-a-dia.'
+            'description' => 'Categoria relacionada a coisas úteis do dia-a-dia.'
         ]);
 
         Category::create([
             'user_id' => '1',
             'name' => 'Fitness',
-            'desc' => 'Categoria relacionada a atividades fisicas.'
+            'description' => 'Categoria relacionada a atividades fisicas.'
         ]);
 
         Category::create([
             'user_id' => '2',
-            'name' => 'Coisas'
+            'name' => 'Something'
         ]);
     }
 }

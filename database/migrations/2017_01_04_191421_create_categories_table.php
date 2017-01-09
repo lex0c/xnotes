@@ -17,12 +17,12 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
 
             $table->string('name', 50)->unique();
-            $table->string('desc', 100)->nullable();
+            $table->string('description', 100)->nullable();
 
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-            $table->timestamps();
+            $table->timestamp('created_at');
         });
     }
 
