@@ -33,6 +33,11 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700"/>
         <link rel="stylesheet" href="/css/custom.css"/>
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <link rel="stylesheet" href="/css/toastr.min.css"/>
+        <script src="/js/toastr.min.js"></script>
+        <script src="/js/custom.js"></script>
+
         <!--[if lte IE 8]>
             <script src="/js/html5shiv.min.js"></script>
             <script src="/js/respond.min.js"></script>
@@ -132,5 +137,4 @@
 	</body>
     <!-- Scripts -->
     <script src="/js/app.js"></script>
-    <script src="/js/custom.js"></script>
 </html>
