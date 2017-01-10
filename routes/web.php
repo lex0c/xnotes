@@ -17,10 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::group(['namespace' => 'Webapp'], function() {
-//    Route::get('/notes', 'NoteController@index');
-//    Route::get('/note/novo', 'NoteController@create');
-//    Route::get('/note/store', 'NoteController@store');
+Route::group(['namespace' => 'Webapp', 'middleware' => 'auth'], function() {
     Route::resource('/notes', 'NoteController');
+    Route::resource('/categories', 'CategoryController');
 });
 
