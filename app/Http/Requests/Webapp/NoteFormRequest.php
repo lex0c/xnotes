@@ -29,7 +29,7 @@ class NoteFormRequest extends FormRequest
     {
         return [
             'title'        => 'required | min:3 | max:100',
-            'content'      => 'max:1500',
+            'content'      => 'max:2000',
             'category_id'  => 'required | numeric',
             'color'        => 'required | min:4 | max:7',
             'access'       => 'required'

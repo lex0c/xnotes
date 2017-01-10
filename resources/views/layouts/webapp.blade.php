@@ -69,18 +69,10 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-
                         <!-- Branding Image/Name -->
-                        @if(Auth::guest())
-                            <a class="navbar-brand" href="{{ url('/') }}">
-                                <b>{{ '< ' . config('app.name', 'XNotes') . ' />' }}</b>
-                            </a>
-                        @else
-                            <a class="navbar-brand" href="{{ url('/notes') }}">
-                               <b>{{ '< ' . config('app.name', 'XNotes') . ' />' }}</b>
-                            </a>
-                        @endif
-                        
+                        <a class="navbar-brand" href="{{ url('/') }}">
+                            <b>{{ '< ' . config('app.name', 'XNotes') . ' />' }}</b>
+                        </a>
                     </div>
 
                     <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -90,9 +82,9 @@
                             @if(Auth::guest())
                                 &nbsp;
                             @else
-                                <a class="btn btn-primary navbar-btn" href="{{ route('notes.create') }}" role="button">Nova Nota</a>
+                                <a title="Nova Nota" class="btn btn-primary navbar-btn" href="{{ route('notes.create') }}" role="button">Nova Nota</a>
                                 <button type="button" class="btn btn-success navbar-btn">Nova Lista</button>
-                                <button type="button" class="btn btn-default navbar-btn">Nova Categoria</button>
+                                <a title="Nova Categoria" class="btn btn-default navbar-btn" href="{{ route('categories.create') }}" role="button">Nova Categoria</a>
                             @endif
                         </ul>
 
@@ -113,8 +105,8 @@
                                         {{ Auth::user()->name }} <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="">Meu Perfil</a></li>
-                                        <li><a href="">Configurações</a></li>
+                                        <li><a href="{{ url('/notes') }}">Minhas Notas</a></li>
+                                        <li><a href="#">Configurações</a></li>
                                         <li role="separator" class="divider"></li>
                                         <li>
                                             <a href="{{ url('/logout') }}"

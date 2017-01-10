@@ -53,7 +53,8 @@ class NoteController extends Controller
      */
     public function create()
     {
-        return view('webapp.form', [
+        return view('webapp.forms.note', [
+            'title' => 'Criar nota',
             'categories' => Category::where('user_id', auth()->user()->id)->get(),
             'colors' => Note::getColors(),
             'access' => Note::getAccess()
@@ -90,7 +91,6 @@ class NoteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Note $note
      * @param int  $id
      *
      * @return \Illuminate\Http\Response
@@ -102,8 +102,8 @@ class NoteController extends Controller
         if(Gate::denies('whoSee', $note))
             return view('errors.401');
 
-        return view('webapp.form', [
-            'title' => 'Edição de nota',
+        return view('webapp.forms.note', [
+            'title' => 'Editar nota',
             'note' => $note,
             'categories' => Category::where('user_id', auth()->user()->id)->get(),
             'colors' => Note::getColors(),
@@ -145,10 +145,10 @@ class NoteController extends Controller
         if(Gate::denies('whoSee', Note::find($id)))
             return view('errors.401');
 
-        return view('webapp.form', [
+        return view('webapp.forms.note', [
             'note' => Note::find($id),
             'del'  => true,
-            'title' => 'Edição de nota',
+            'title' => 'Deletar nota',
             'categories' => Category::where('user_id', auth()->user()->id)->get(),
             'colors' => Note::getColors(),
             'access' => Note::getAccess()

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Policies;
+namespace App\Policies\Webapp;
 
 use App\User;
 use App\Model\Webapp\Note;

@@ -41,13 +41,14 @@
                                         @endforeach
                                         </optgroup>
                                         <optgroup label="Opções">
-                                            <option value="">Criar Categoria</option>
+                                            <option value=""><a href="{{ route('categories.create') }}">Criar Categoria</a></option>
                                         </optgroup>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
+                                    <input type="color" name="favcolor" value="#337ab7" disabled>
                                     <label for="color">Cor do Modal</label>
                                     <select name="color" id="color" class="form-control" @if((isset($del)) && ($del == true)) disabled @endif>
                                         @foreach($colors as $color => $hexa)

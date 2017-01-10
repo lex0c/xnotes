@@ -57,15 +57,25 @@
                 {!! $notes->links() !!}
             </div>
             <div class="col-md-4">
-                
-                <div class="panel panel-default">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Informações</h3>
+                    </div>
+                    <div class="panel-body">
+                        <a href="#" class="list-group-item">
+                            <span class="badge">{{ $notes_total }}</span>
+                            Total de Notas
+                        </a>
+                    </div>
+                </div>
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Marcadores</h3>
+                    </div>
                     <div class="panel-body">
                         
                         <div class="list-group">
-                            <a href="#" class="list-group-item active">
-                                <span class="badge">{{ $notes_total }}</span>
-                                Todos
-                            </a>
                             @foreach($categories as $category)
                                 <a href="#" class="list-group-item">
                                     <span class="badge">{{ $category->created_at }}</span>
@@ -73,10 +83,9 @@
                                 </a>
                             @endforeach
                         </div>
-
+                       <a class="right litle-text" href="#">Editar Marcadores</a>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
