@@ -45,7 +45,7 @@
                                     Deletar
                                 </button>
                             @endif
-                            <a href="{{ route('notes.index') }}" class="btn btn-danger btn-lg btn-block center-block">
+                            <a href="{{ route('categories.index') }}" class="btn btn-danger btn-lg btn-block center-block">
                                 Cancelar
                             </a>
                         </fieldset>

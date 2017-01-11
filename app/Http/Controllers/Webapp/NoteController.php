@@ -35,14 +35,17 @@ class NoteController extends Controller
     public function index(Note $note, Category $category, User $user)
     {
         $currentUser = auth()->user()->id;
-
         return view('webapp.home', [
+            'title' => 'Minhas Notas',
             'user_obj' => $user,
             'note_obj' => $note,
             'category_obj' => $category,
             'notes' => $note->where('user_id', $currentUser)->paginate(15),
             'categories' => $category->where('user_id', $currentUser)->get(),
-            'notes_total' => $note->where('user_id', $currentUser)->get()->count()
+            'notes_total' => $note->where('user_id', $currentUser)->get()->count(),
+            'categories_total' => $category->where('user_id', $currentUser)->get()->count(),
+            'notes_public_total' => $note->where('user_id', $currentUser)->where('access', 'public')->get()->count(),
+            'notes_private_total' => $note->where('user_id', $currentUser)->where('access', 'private')->get()->count()
         ]);
     }
 

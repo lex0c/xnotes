@@ -32,9 +32,10 @@
         <link rel="stylesheet" href="/css/animate.min.css"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700"/>
         <link rel="stylesheet" href="/css/custom.css"/>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <link rel="stylesheet" href="/css/toastr.min.css"/>
+
+        {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>--}}
+        <script src="/js/jquery.min.js"></script>
         <script src="/js/toastr.min.js"></script>
         <script src="/js/custom.js"></script>
 
@@ -58,7 +59,7 @@
 	</head>
 	<body>
         <div id="app">
-            <nav class="navbar navbar-default navbar-static-top">
+            <div class="navbar navbar-default navbar-static-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
 
@@ -92,12 +93,12 @@
                         <ul class="nav navbar-nav navbar-right">
                             <!-- Authentication Link -->
                             @if(Auth::guest())
-                                <li><a href="{{ url('/login') }}">Login</a></li>
-                                <li><a href="{{ url('/register') }}">Register</a></li>
+                                <li><a href="{{ route('login') }}">Login</a></li>
+                                <li><a href="{{ route('register') }}">Register</a></li>
                             @else
                                 <form class="navbar-form navbar-left">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Procurar por alguma nota..." size="50"/>
+                                        <input type="text" class="form-control nav-search" placeholder="Procurar por alguma nota..." size="50"/>
                                     </div>
                                 </form>
                                 <li class="dropdown">
@@ -105,15 +106,18 @@
                                         {{ Auth::user()->name }} <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="{{ url('/notes') }}">Minhas Notas</a></li>
-                                        <li><a href="#">Configurações</a></li>
+                                        <li><a title="Minhas notas" href="{{ route('notes.index') }}">Minhas Notas</a></li>
+                                        <li><a title="Editar Perfil" href="#">Editar Perfil</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a title="Mensagens" href="#">Mensagens &nbsp; <span class="badge badge-info">0</span></a></li>
+                                        <li><a title="Configurações" href="{{ route('index') }}">Configurações</a></li>
                                         <li role="separator" class="divider"></li>
                                         <li>
-                                            <a href="{{ url('/logout') }}"
+                                            <a href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                                 Sair
                                             </a>
-                                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                 {{ csrf_field() }}
                                             </form>
                                         </li>
@@ -123,9 +127,9 @@
                         </ul>
                     </div>
                 </div>
-            </nav>
+            </div>
+            @yield('content')
         </div>
-        @yield('content')
 	</body>
     <!-- Scripts -->
     <script src="/js/app.js"></script>

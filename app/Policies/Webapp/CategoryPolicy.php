@@ -18,7 +18,7 @@ class CategoryPolicy
         //
     }
 
-    public function whoSee(User $user, Category $category)
+    public function whoSeeCategory(User $user, Category $category)
     {
         return $user->id == $category->user_id;
     }

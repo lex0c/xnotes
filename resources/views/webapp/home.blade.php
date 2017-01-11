@@ -20,7 +20,7 @@
 
                <div class="panel panel-{{ $note->color or 'primary' }}">
                    <div class="panel-heading clearfix">
-                       <p class="left">Criado em {{ $createdAt }} </p>
+                       <p class="left mobile-none">Criado em {{ $createdAt }} </p>
                        <div class="btn-group right">
                            <a title="Editar" class="btn btn-default" href="{{ route('notes.edit', $note->id) }}" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar</a>
                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -34,9 +34,6 @@
                     </div>
                     <div class="panel-body">                      
                         <div class="media">
-                            <div class="media-left">
-                                <img title="Lorempixel Image" class="media-object" src="http://lorempixel.com/64/64/abstract/" alt="Imagens aleatórias sem significado."/>
-                            </div>
                             <div class="media-body">
                                 <h4 class="media-heading"><b>{{ $note->title }}</b></h4>
                                 {{ $note->content }}
@@ -50,13 +47,13 @@
                             <span class="label label-default">#{{ $category_obj->find($note_obj->find($note->id)->category_id)->name }}</span>
                             <span class="label label-warning">#{{ $note->access }}</span>
                         {{--@endfor--}}
-                        <p class="right litle-text">Editado {{ $updatedAt }}</p>
+                        <p class="right litle-text mobile-none">Editado {{ $updatedAt }}</p>
                     </div>
                 </div>
             @endforeach
                 {!! $notes->links() !!}
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mobile-none">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">Informações</h3>
@@ -66,10 +63,22 @@
                             <span class="badge">{{ $notes_total }}</span>
                             Total de Notas
                         </a>
+                        <a href="#" class="list-group-item">
+                            <span class="badge">{{ $categories_total }}</span>
+                            Total de Marcadores
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <span class="badge">{{ $notes_public_total }}</span>
+                            Total de Notas Publicas
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <span class="badge">{{ $notes_private_total }}</span>
+                            Total de Notas Privadas
+                        </a>
                     </div>
                 </div>
 
-                <div class="panel panel-primary">
+                <div class="panel panel-primary mobile-none">
                     <div class="panel-heading">
                         <h3 class="panel-title">Marcadores</h3>
                     </div>
@@ -83,7 +92,7 @@
                                 </a>
                             @endforeach
                         </div>
-                       <a class="right litle-text" href="#">Editar Marcadores</a>
+                       <a class="right litle-text" href="{{ route('categories.index') }}">Editar Marcadores</a>
                     </div>
                 </div>
             </div>
