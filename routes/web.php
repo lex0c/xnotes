@@ -17,8 +17,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::group(['namespace' => 'Webapp', 'middleware' => 'auth'], function() {
+Route::group(['namespace' => 'Webapp', 'middleware' => 'auth', 'prefix' => '/user'], function() {
     Route::resource('/notes', 'NoteController');
-    Route::resource('/categories', 'CategoryController');
+
+    // Dashboard Controll
+    Route::group(['namespace' => 'Panel', 'prefix' => '/panel'], function() {
+        Route::resource('/', 'PanelController');
+        //Route::resource('/profile', 'ProfileController');
+        Route::resource('/categories', 'CategoryController');
+        //Route::resource('/messages', 'MessageController');
+    });
+
 });
 

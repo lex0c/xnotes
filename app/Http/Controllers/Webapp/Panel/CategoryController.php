@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Webapp;
+namespace App\Http\Controllers\Webapp\Panel;
 
-use App\Http\Requests\Webapp\CategoryFormRequest;
 use App\Model\Webapp\Category;
-use Illuminate\Http\Request;
+use App\Http\Requests\Webapp\CategoryFormRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
 
 class CategoryController extends Controller
 {
@@ -16,7 +16,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+       // dd(Category::where('user_id', auth()->user()->id)->get());
+        return view('webapp.panel.category-manager', [
+            'categories' => Category::where('user_id', auth()->user()->id)->paginate(10)
+        ]);
     }
 
     /**
@@ -57,7 +60,19 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $category = Category::find($id);
+
+        if(Gate::denies('whoSeeCategory', $category))
+            return view('errors.401');
+
+        if(!$category)
+            redirect()->route('categories.index');
+
+        return view('webapp.forms.category', [
+            'title' => 'Deletar Marcador',
+            'category' => $category,
+            'del'  => true
+        ]);
     }
 
     /**
@@ -68,7 +83,18 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+
+        if(Gate::denies('whoSeeCategory', $category))
+            return view('errors.401');
+
+        if(!$category)
+            redirect()->route('categories.index');
+
+        return view('webapp.forms.category', [
+            'title' => 'Editar Marcador',
+            'category' => $category
+        ]);
     }
 
     /**
@@ -80,7 +106,17 @@ class CategoryController extends Controller
      */
     public function update(CategoryFormRequest $request, $id)
     {
-        //
+        $dataForm = $request->all();
+        $dataForm['user_id'] = auth()->user()->id;
+
+        $category = Category::find($id);
+        $inserted = $category->update($dataForm);
+
+        if($inserted) {
+            return redirect()->route('categories.index');
+        } else {
+            return redirect()->route('categories.edit', $id)->withErrors($dataForm);
+        }
     }
 
     /**
@@ -91,6 +127,13 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+
+        if(Gate::denies('whoSeeCategory', $category))
+            return view('errors.401');
+
+        if($category->delete()) {
+            return redirect()->route('categories.index');
+        }
     }
 }
