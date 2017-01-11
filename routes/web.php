@@ -23,7 +23,7 @@ Route::group(['namespace' => 'Webapp', 'middleware' => 'auth', 'prefix' => '/use
     // Dashboard Controll
     Route::group(['namespace' => 'Panel', 'prefix' => '/panel'], function() {
         Route::resource('/', 'PanelController');
-        //Route::resource('/profile', 'ProfileController');
+        Route::resource('/profile', 'ProfileController');
         Route::resource('/categories', 'CategoryController');
         //Route::resource('/messages', 'MessageController');
     });
