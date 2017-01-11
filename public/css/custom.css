@@ -6,7 +6,7 @@ body {
     font-family: 'Robot', sans-serif;
     font-size: 5em;
     text-align: center;
-    margin: 20rem 0;
+    margin: 23rem 0;
     color: #E3E5E8;
     /* text-shadow: 1px 3px 5px rgba(0, 0, 0, .2); */
 }
@@ -25,4 +25,36 @@ body {
 
 .nolink {
     text-decoration: none !important;
+}
+
+.badge-info {
+
+}
+
+@media (max-width: 768px) {
+    .mobile-none {
+        display: none;
+    }
+    .navbar-right {
+        overflow: hidden;
+    }
+    .navbar .btn {
+        display: block;
+        width: 98%;
+        margin: 0 auto;
+        margin-top: 3px;
+    }
+    .nav-search {
+        width: 98% !important;
+        margin: 0 auto;
+    }
+
+}
+@media (max-width: 992px) {
+    .navbar-form.navbar-left input[type="text"] {
+        width: 190px;
+    }
+}
+@media (min-width: 1200px) {
+
 }
