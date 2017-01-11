@@ -1,4 +1,4 @@
-@extends('layouts.webapp')
+@extends('layouts.user-dashboard')
 
 @section('content')
     @if((isset($errors)) && (count($errors) > 0))
@@ -8,7 +8,7 @@
             </script>
         @endforeach
     @endif
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 @if(isset($category) && (!isset($del)))

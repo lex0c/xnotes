@@ -1,13 +1,12 @@
-@extends('layouts.dashboard')
+@extends('layouts.user-dashboard')
 
 @section('left-nav-buttons')
-    <a title="Editar Perfil" class="btn btn-primary navbar-btn" href="#" role="button">Editar Perfil</a>
-    <a title="Editar Marcadores" class="btn btn-warning navbar-btn" href="#" role="button">Editar Marcadores</a>
-    <a title="Mensagens"  class="btn btn-success navbar-btn" role="button">Mensagens &nbsp; <span class="badge badge-info">0</span></a>
+    <li><a title="Editar Perfil" href="#"><i class="fa fa-fw fa-edit"></i> Editar Perfil</a></li>
+    <li><a title="Editar Marcadores" href="#"><i class="fa fa-fw fa-edit"></i> Editar Marcadores</a></li>
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">

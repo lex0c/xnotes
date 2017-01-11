@@ -34,6 +34,8 @@
         <link rel="stylesheet" href="/css/custom.css"/>
         <link rel="stylesheet" href="/css/toastr.min.css"/>
 
+        @stack('css')
+
         {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>--}}
         <script src="/js/jquery.min.js"></script>
         <script src="/js/toastr.min.js"></script>
@@ -85,7 +87,7 @@
                             @else
                                 <a title="Nova Nota" class="btn btn-primary navbar-btn" href="{{ route('notes.create') }}" role="button">Nova Nota</a>
                                 <button type="button" class="btn btn-success navbar-btn">Nova Lista</button>
-                                <a title="Nova Categoria" class="btn btn-default navbar-btn" href="{{ route('categories.create') }}" role="button">Nova Categoria</a>
+                                <a title="Nova Categoria" class="btn btn-default navbar-btn" href="{{ route('categories.create') }}" role="button">Novo Marcador</a>
                             @endif
                         </ul>
 
@@ -107,7 +109,7 @@
                                     </a>
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a title="Minhas notas" href="{{ route('notes.index') }}">Minhas Notas</a></li>
-                                        <li><a title="Editar Perfil" href="#">Editar Perfil</a></li>
+                                        <li><a title="Editar Perfil" href="{{ route('profile.index') }}">Editar Perfil</a></li>
                                         <li role="separator" class="divider"></li>
                                         <li><a title="Mensagens" href="#">Mensagens &nbsp; <span class="badge badge-info">0</span></a></li>
                                         <li><a title="Configurações" href="{{ route('index') }}">Configurações</a></li>

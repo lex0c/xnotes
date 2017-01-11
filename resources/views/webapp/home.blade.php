@@ -32,7 +32,7 @@
                            </ul>
                        </div>
                     </div>
-                    <div class="panel-body">                      
+                    <div class="panel-body">
                         <div class="media">
                             <div class="media-body">
                                 <h4 class="media-heading"><b>{{ $note->title }}</b></h4>
