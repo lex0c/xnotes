@@ -20,9 +20,12 @@
     <link rel="stylesheet" href="/css/sb-admin.css"/>
     <link rel="stylesheet" href="/css/toastr.min.css"/>
 
+    @stack('css')
+
     {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>--}}
     <script src="/js/jquery.min.js"></script>
     <script src="/js/toastr.min.js"></script>
+    <script src="/js/custom.js"></script>
 
     <!--[if lte IE 8]>
     <script src="/js/html5shiv.min.js"></script>
@@ -44,7 +47,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ route('index') }}">Dashboard</a>
+            <a class="navbar-brand" href="{{ route('index') }}">Configurações do Usuario</a>
         </div>
 
         <!-- Top Menu Items -->
@@ -54,13 +57,26 @@
                 {{--<li><a href="{{ route('register') }}">Register</a></li>--}}
             @else
                 <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li><a href="#">Alert Name <span class="label label-default">Alert Badge</span></a></li>
+                        <li><a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a></li>
+                        <li><a href="#">Alert Name <span class="label label-success">Alert Badge</span></a></li>
+                        <li><a href="#">Alert Name <span class="label label-info">Alert Badge</span></a></li>
+                        <li><a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a></li>
+                        <li><a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">View All</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu message-dropdown">
                         <li class="message-preview">
                             <a href="#">
                                 <div class="media">
                                     <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="Imagens aleatria sem significado">
                                     </span>
                                     <div class="media-body">
                                         <h5 class="media-heading"><strong>Moderador</strong>
@@ -80,7 +96,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ Auth::user()->name }} <b class="caret"></b></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a title="Minhas notas" href="{{ route('notes.index') }}">Minhas Notas</a></li>
-                        <li><a title="Editar Perfil" href="#">Editar Perfil</a></li>
+                        <li><a title="Editar Perfil" href="{{ route('profile.index') }}">Editar Perfil</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a title="Mensagens" href="#">Mensagens &nbsp; <span class="badge badge-info">1</span></a></li>
                         <li><a title="Configurações" href="{{ route('index') }}">Configurações</a></li>
@@ -103,10 +119,12 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li class="active">
-                    <a href="{{ route('index') }}"><i class="fa fa-fw fa-dashboard"></i> Inicio</a>
+                    <a href="{{ route('index') }}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                 </li>
                 <li><a title="Editar Perfil" href="{{ route('profile.index') }}"><i class="fa fa-fw fa-edit"></i> Editar Perfil</a></li>
                 <li><a title="Editar Marcadores" href="{{ route('categories.index') }}"><i class="fa fa-fw fa-edit"></i> Editar Marcadores</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a title="Voltar para Notas" href="{{ route('notes.index') }}"><i class="fa fa-fw fa-list"></i> Voltar para Notas</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>
@@ -117,4 +135,7 @@
 </body>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/sb-admin.js"></script>
+
+    @stack('chars')
+
 </html>

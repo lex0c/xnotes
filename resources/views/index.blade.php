@@ -82,6 +82,8 @@
                 @else
                     <ul class="nav navbar-nav navbar-left">
                         <li><a title="Minhas notas" href="{{ route('notes.index') }}">Minhas Notas</a></li>
+                        <li><a title="Notas publicas da comunidade" href="#">Notas da Comunidade</a></li>
+                        <li><a title="Sobre o XNotes" href="#services">Sobre</a></li>
                     </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <form class="navbar-form navbar-left">
@@ -155,6 +157,7 @@
         </div>
     </div><!-- /.container -->
 </div><!-- /.content-section-a -->
+
 <div class="content-section-b">
     <div class="container">
         <div class="row">
@@ -170,6 +173,7 @@
         </div>
     </div><!-- /.container -->
 </div><!-- /.content-section-b -->
+
 <div class="content-section-a">
     <div class="container">
         <div class="row">
@@ -201,12 +205,8 @@
                 </ul>
             </div>
         </div>
-
-    </div>
-    <!-- /.container -->
-
-</div>
-<!-- /.banner -->
+    </div><!-- /.container -->
+</div><!-- /.banner -->
 
 <!-- Footer -->
 <footer>

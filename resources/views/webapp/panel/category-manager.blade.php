@@ -1,12 +1,7 @@
 @extends('layouts.user-dashboard')
 
-@section('left-nav-buttons')
-    <li><a title="Editar Perfil" href="#"><i class="fa fa-fw fa-edit"></i> Editar Perfil</a></li>
-    <li><a title="Editar Marcadores" href="#"><i class="fa fa-fw fa-edit"></i> Editar Marcadores</a></li>
-@endsection
-
 @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid padd-top">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
