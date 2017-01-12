@@ -17,6 +17,10 @@ body {
     }
 }
 
+.padd-top {
+    padding-top: 30px !important;
+}
+
 #wrapper {
     padding-left: 0;
     width: 100%;
@@ -24,7 +28,7 @@ body {
 
 #page-wrapper {
     width: 100%;
-    padding-top: 30px !important;
+    padding: 0;
     background-color: #fff;
 }
 
